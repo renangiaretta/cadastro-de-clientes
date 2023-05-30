@@ -3,13 +3,15 @@
     "target": "es2016",
     "module": "CommonJS",
     "typeRoots": ["src/@types", "node_modules/@types"],
+    "outDir": "./dist",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "exactOptionalPropertyTypes": true,
     "skipLibCheck": true,
-    "strictPropertyInitialization": false,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false
     },
     "include": ["src"],
     "exclude": ["node_modules"]
