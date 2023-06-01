@@ -10,5 +10,16 @@ const createCustomerController = async (req: Request, res: Response): Promise<Re
     return res.status(201).json(newCustomer)
 }
 
+const listCustomersController = async (req: Request, res: Response) => {
 
-export { createCustomerController }
+}
+
+const updateCustomersController = async (req: Request, res: Response) => {
+
+}
+
+const deleteCustomersController = async (req: Request, res: Response) => {
+
+}
+
+export { createCustomerController, listCustomersController, updateCustomersController, deleteCustomersController }
