@@ -11,6 +11,6 @@ customersRoutes.post('', ensureDataIsValidMiddleware(customerSerializerRequest),
 customersRoutes.get('', listCustomersController)
 customersRoutes.get('/all', listAllCustomersController)
 customersRoutes.patch('', ensureAuthMiddleware, ensureDataIsValidMiddleware(customerSerializerUpdate), updateCustomersController)
-customersRoutes.delete('', deleteCustomersController)
+customersRoutes.delete('/:id', deleteCustomersController)
 
 export { customersRoutes }

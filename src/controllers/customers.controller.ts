@@ -4,6 +4,7 @@ import { createCustomerService } from '../services/customers/createCustomer.serv
 import { listCustomersService } from '../services/customers/listCustomers.service'
 import { updateCustomerService } from '../services/customers/updateCustomer.service'
 import { listAllCustomersService } from '../services/customers/listAllCustomers.service'
+import { deleteCustomerService } from '../services/customers/deleteCustomer.service'
 
 
 const createCustomerController = async (req: Request, res: Response): Promise<Response> => {
@@ -31,7 +32,9 @@ const updateCustomersController = async (req: Request, res: Response) => {
 }
 
 const deleteCustomersController = async (req: Request, res: Response) => {
-
+    const customerId: number = parseInt(req.params.id)
+    await deleteCustomerService(customerId)
+    return res.status(204).send()
 }
 
 export { createCustomerController, listCustomersController, updateCustomersController, deleteCustomersController, listAllCustomersController }

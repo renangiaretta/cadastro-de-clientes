@@ -5,8 +5,7 @@ import { TCustomerRequest, TCustomerResponse } from "../../interfaces/customers.
 import { customerSerializerResponse } from "../../serializers/customers.serializer";
 
 
-
-const createCustomerService = async ({password, first_name, last_name, email }: TCustomerRequest): Promise<TCustomerResponse> => {
+const createCustomerService = async ({password, first_name, last_name, email, phone }: TCustomerRequest): Promise<TCustomerResponse> => {
     const customerRepository = AppDataSource.getRepository(Customer)
     const findCustomer = await customerRepository.findOne({
         where: {
@@ -20,6 +19,7 @@ const createCustomerService = async ({password, first_name, last_name, email }: 
         email,
         first_name,
         last_name,
+        phone,
         password
     })
     await customerRepository.save(customer)

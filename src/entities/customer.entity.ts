@@ -20,6 +20,9 @@ class Customer {
     @Column({ type: 'varchar', length: 127, unique: true })
     email: string
 
+    @Column({type: 'varchar', length: 14})
+    phone: string
+
     @CreateDateColumn({ type: 'date' })
     created_at: string | Date
 

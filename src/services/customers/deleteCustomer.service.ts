@@ -5,8 +5,7 @@ import { AppError } from "../../errors/AppError"
 import { Repository } from "typeorm"
 
 
-
-const deleteCustomerService = async (customerId: number, req: Request, res: Response): Promise<Response> => {
+const deleteCustomerService = async (customerId: number): Promise<void> => {
     const customerRepository: Repository<Customer> = AppDataSource.getRepository(Customer)
     const customer: Customer | null = await customerRepository.findOneBy({
         id: customerId
@@ -15,7 +14,6 @@ const deleteCustomerService = async (customerId: number, req: Request, res: Resp
         throw new AppError('Customer not found.', 404)
     }
     await customerRepository.remove(customer!)
-    return res.status(204).send()
 }
 
 
