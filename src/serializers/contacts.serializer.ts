@@ -19,4 +19,9 @@ const contactSerializerUpdate = contactSerializer.omit({
     id: true
 }).partial()
 
-export { contactSerializer, contactSerializerRequest, contactSerializerUpdate }
+
+export {
+    contactSerializer,
+    contactSerializerRequest,
+    contactSerializerUpdate
+}

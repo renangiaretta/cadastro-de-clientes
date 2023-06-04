@@ -1,8 +1,7 @@
-import { Request, Response } from "express"
-import { AppDataSource } from "../../data-source"
-import { Customer } from "../../entities/customer.entity"
-import { AppError } from "../../errors/AppError"
-import { Repository } from "typeorm"
+import { AppDataSource } from '../../data-source'
+import { Customer } from '../../entities/customer.entity'
+import { AppError } from '../../errors/AppError'
+import { Repository } from 'typeorm'
 
 
 const deleteCustomerService = async (customerId: number): Promise<void> => {

@@ -1,5 +1,16 @@
-import { getRounds, hashSync } from 'bcryptjs'
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, BeforeInsert, BeforeUpdate } from 'typeorm'
+import { Contact } from './contact.entity'
+import {
+    getRounds,
+    hashSync
+} from 'bcryptjs'
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column, CreateDateColumn,
+    BeforeInsert,
+    BeforeUpdate,
+    OneToMany
+} from 'typeorm'
 
 
 @Entity('customers')
@@ -26,6 +37,9 @@ class Customer {
     @CreateDateColumn({ type: 'date' })
     created_at: string | Date
 
+    @OneToMany(() => Contact, contact => contact.customer, { nullable: true })
+    contacts: Contact[]
+
     @BeforeInsert()
     @BeforeUpdate()
     hashpassword() {
@@ -35,5 +49,6 @@ class Customer {
         }
     }
 }
+
 
 export { Customer }

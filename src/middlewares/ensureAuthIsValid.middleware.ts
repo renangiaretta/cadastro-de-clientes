@@ -1,6 +1,10 @@
-import { NextFunction, Request, Response } from "express";
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
+import {
+    NextFunction,
+    Request,
+    Response
+} from "express";
 
 
 const ensureAuthMiddleware = (req: Request, res: Response, next: NextFunction) => {

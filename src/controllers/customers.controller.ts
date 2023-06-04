@@ -1,10 +1,16 @@
-import { Request, Response } from 'express'
-import { TCustomerRequest, TCustomerResponse } from '../interfaces/customers.interfaces'
 import { createCustomerService } from '../services/customers/createCustomer.service'
-import { listCustomersService } from '../services/customers/listCustomers.service'
+import { detailCustomerService } from '../services/customers/detailCustomer.service'
 import { updateCustomerService } from '../services/customers/updateCustomer.service'
 import { listAllCustomersService } from '../services/customers/listAllCustomers.service'
 import { deleteCustomerService } from '../services/customers/deleteCustomer.service'
+import {
+    Request,
+    Response
+} from 'express'
+import {
+    TCustomerRequest,
+    TCustomerResponse
+} from '../interfaces/customers.interfaces'
 
 
 const createCustomerController = async (req: Request, res: Response): Promise<Response> => {
@@ -15,7 +21,7 @@ const createCustomerController = async (req: Request, res: Response): Promise<Re
 }
 
 const listCustomersController = async (req: Request, res: Response) => {
-    const customer = await listCustomersService(res.locals.customerId)
+    const customer = await detailCustomerService(res.locals.customerId)
     return res.status(200).json(customer)
 }
 
@@ -27,7 +33,6 @@ const listAllCustomersController = async (req: Request, res: Response) => {
 const updateCustomersController = async (req: Request, res: Response) => {
     const customerData = req.body
     const customer = await updateCustomerService(customerData, res.locals.customerId)
-    console.log(res.locals.customerId, 'asdas')
     return res.status(200).json(customer)
 }
 
@@ -37,4 +42,11 @@ const deleteCustomersController = async (req: Request, res: Response) => {
     return res.status(204).send()
 }
 
-export { createCustomerController, listCustomersController, updateCustomersController, deleteCustomersController, listAllCustomersController }
+
+export {
+    createCustomerController,
+    listCustomersController,
+    updateCustomersController,
+    deleteCustomersController,
+    listAllCustomersController
+}

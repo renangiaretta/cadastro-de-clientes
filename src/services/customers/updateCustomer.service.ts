@@ -1,8 +1,8 @@
-import { AppDataSource } from "../../data-source";
-import { Customer } from "../../entities/customer.entity";
-import { AppError } from "../../errors/AppError";
-import { TCustomerRequest, TCustomerResponse } from "../../interfaces/customers.interfaces";
-import { customerSerializerResponse } from "../../serializers/customers.serializer";
+import { AppDataSource } from '../../data-source';
+import { Customer } from '../../entities/customer.entity';
+import { AppError } from '../../errors/AppError';
+import { TCustomerRequest, TCustomerResponse } from '../../interfaces/customers.interfaces';
+import { customerSerializerResponse } from '../../serializers/customers.serializer';
 
 
 const updateCustomerService = async (data: TCustomerRequest, customerId: number): Promise<TCustomerResponse> => {

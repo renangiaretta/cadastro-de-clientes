@@ -1,4 +1,11 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn } from 'typeorm'
+import { Customer } from './customer.entity'
+import {
+    Entity,
+    PrimaryGeneratedColumn,
+    Column,
+    CreateDateColumn,
+    ManyToOne
+} from 'typeorm'
 
 
 @Entity('contacts')
@@ -6,9 +13,6 @@ class Contact {
 
     @PrimaryGeneratedColumn('increment')
     id: number
-
-    @Column({ type: 'varchar', length: 127 })
-    password: string
 
     @Column({ type: 'varchar', length: 50 })
     first_name: string
@@ -24,6 +28,9 @@ class Contact {
 
     @CreateDateColumn({ type: 'date' })
     created_at: string | Date
+
+    @ManyToOne(() => Customer, customer => customer.contacts)
+    customer: Customer
 
 }
 

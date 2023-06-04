@@ -1,8 +1,8 @@
-import { compare } from "bcryptjs"
-import { AppDataSource } from "../data-source"
-import { Customer } from "../entities/customer.entity"
-import { AppError } from "../errors/AppError"
-import { TLoginRequest } from "../interfaces/login.interfaces"
+import { compare } from 'bcryptjs'
+import { AppDataSource } from '../data-source'
+import { Customer } from '../entities/customer.entity'
+import { AppError } from '../errors/AppError'
+import { TLoginRequest } from '../interfaces/login.interfaces'
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 

@@ -1,5 +1,9 @@
-import { Request, Response, NextFunction } from 'express'
 import { ZodTypeAny } from 'zod'
+import {
+    Request,
+    Response,
+    NextFunction
+} from 'express'
 
 
 const ensureDataIsValidMiddleware = ( serializer: ZodTypeAny ) => ( req: Request, res: Response, next: NextFunction ) => {

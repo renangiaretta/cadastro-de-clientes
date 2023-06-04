@@ -1,4 +1,5 @@
 import { z } from 'zod'
+import { contactSerializer } from './contacts.serializer'
 
 
 const customerSerializer = z.object({
@@ -20,8 +21,20 @@ const customerSerializerResponse = customerSerializer.omit({
     password: true
 })
 
+const customerSerializerResponseContacts = customerSerializerResponse.extend({
+    contacts: z.array(contactSerializer).nullish()
+})
+
+
 const customerSerializerUpdate = customerSerializer.omit({
     id: true
 }).partial()
 
-export { customerSerializer, customerSerializerRequest, customerSerializerResponse, customerSerializerUpdate }
+
+export {
+    customerSerializer,
+    customerSerializerRequest,
+    customerSerializerResponse,
+    customerSerializerUpdate,
+    customerSerializerResponseContacts
+}
