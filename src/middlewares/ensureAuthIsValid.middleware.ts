@@ -19,7 +19,7 @@ const ensureAuthMiddleware = (req: Request, res: Response, next: NextFunction) =
                 message: 'Inalid token.'
             })
         }
-        res.locals.userId = decoded.sub
+        res.locals.customerId = decoded.sub
 
         return next()
     })

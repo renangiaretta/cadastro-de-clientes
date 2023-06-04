@@ -1,6 +1,9 @@
 import { Request, Response } from 'express'
 import { TCustomerRequest, TCustomerResponse } from '../interfaces/customers.interfaces'
 import { createCustomerService } from '../services/customers/createCustomer.service'
+import { listCustomersService } from '../services/customers/listCustomers.service'
+import { updateCustomerService } from '../services/customers/updateCustomer.service'
+import { listAllCustomersService } from '../services/customers/listAllCustomers.service'
 
 
 const createCustomerController = async (req: Request, res: Response): Promise<Response> => {
@@ -11,15 +14,24 @@ const createCustomerController = async (req: Request, res: Response): Promise<Re
 }
 
 const listCustomersController = async (req: Request, res: Response) => {
+    const customer = await listCustomersService(res.locals.customerId)
+    return res.status(200).json(customer)
+}
 
+const listAllCustomersController = async (req: Request, res: Response) => {
+    const customers = await listAllCustomersService()
+    return res.status(200).json(customers)
 }
 
 const updateCustomersController = async (req: Request, res: Response) => {
-
+    const customerData = req.body
+    const customer = await updateCustomerService(customerData, res.locals.customerId)
+    console.log(res.locals.customerId, 'asdas')
+    return res.status(200).json(customer)
 }
 
 const deleteCustomersController = async (req: Request, res: Response) => {
 
 }
 
-export { createCustomerController, listCustomersController, updateCustomersController, deleteCustomersController }
+export { createCustomerController, listCustomersController, updateCustomersController, deleteCustomersController, listAllCustomersController }

@@ -3,7 +3,6 @@ import { createTokenController } from '../controllers/login.controller'
 
 
 const loginRoutes = Router()
-
 loginRoutes.post('', createTokenController)
 
 

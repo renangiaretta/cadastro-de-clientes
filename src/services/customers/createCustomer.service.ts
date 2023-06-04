@@ -14,7 +14,7 @@ const createCustomerService = async ({password, first_name, last_name, email }: 
         }
     })
     if (findCustomer) {
-        throw new AppError('User already exists', 409)
+        throw new AppError('E-mail already registered.', 409)
     }
     const customer =  customerRepository.create({
         email,

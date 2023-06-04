@@ -19,5 +19,8 @@ const customerSerializerResponse = customerSerializer.omit({
     password: true
 })
 
+const customerSerializerUpdate = customerSerializer.omit({
+    id: true
+}).partial()
 
-export { customerSerializer, customerSerializerRequest, customerSerializerResponse }
+export { customerSerializer, customerSerializerRequest, customerSerializerResponse, customerSerializerUpdate }

@@ -5,6 +5,6 @@ import { customerSerializer, customerSerializerRequest, customerSerializerRespon
 type TCustomer = z.infer<typeof customerSerializer>
 type TCustomerRequest = z.infer<typeof customerSerializerRequest>
 type TCustomerResponse = z.infer<typeof customerSerializerResponse>
+type TCustomersList = TCustomerResponse[]
 
-
-export { TCustomer, TCustomerRequest, TCustomerResponse }
+export { TCustomer, TCustomerRequest, TCustomerResponse, TCustomersList }

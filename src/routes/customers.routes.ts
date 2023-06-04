@@ -1,14 +1,16 @@
 import { Router } from 'express'
-import { createCustomerController, listCustomersController, updateCustomersController } from '../controllers/customers.controller'
+import { createCustomerController, deleteCustomersController, listAllCustomersController, listCustomersController, updateCustomersController } from '../controllers/customers.controller'
 import { ensureDataIsValidMiddleware } from '../middlewares/ensureDataIsValid.middleware'
-import { customerSerializerRequest } from '../serializers/customers.serializer'
+import { customerSerializerRequest, customerSerializerUpdate } from '../serializers/customers.serializer'
+import { ensureAuthMiddleware } from '../middlewares/ensureAuthIsValid.middleware'
 
 
 const customersRoutes = Router()
 
 customersRoutes.post('', ensureDataIsValidMiddleware(customerSerializerRequest), createCustomerController)
 customersRoutes.get('', listCustomersController)
-customersRoutes.patch('', updateCustomersController)
+customersRoutes.get('/all', listAllCustomersController)
+customersRoutes.patch('', ensureAuthMiddleware, ensureDataIsValidMiddleware(customerSerializerUpdate), updateCustomersController)
 customersRoutes.delete('', deleteCustomersController)
 
 export { customersRoutes }

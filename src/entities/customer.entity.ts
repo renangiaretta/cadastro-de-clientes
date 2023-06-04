@@ -17,7 +17,7 @@ class Customer {
     @Column({ type: 'varchar', length: 127 })
     last_name: string
 
-    @Column({ type: 'varchar', length: 127 })
+    @Column({ type: 'varchar', length: 127, unique: true })
     email: string
 
     @CreateDateColumn({ type: 'date' })

@@ -14,3 +14,6 @@ app.use('/customers', customersRoutes)
 
 app.use(handleAppErrorMiddleware)
 export default app
+
+
+// 52 MINUTENS
